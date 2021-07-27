@@ -1,0 +1,7 @@
+<launch>
+  <node name="gscam" pkg="gscam" type="gscam" output="screen">
+    <param name="gscam_config" value="nvarguscamerasrc sensor-id=0 ! video/x-raw(memory:NVMM),width=1920, height=1080,format=NV12, framerate=60/1 ! nvvidconv flip-method=0 ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR"/>
+  </node>
+                 
+  <node pkg="rqt_image_view" type="rqt_image_view" name="image_view_debug" args="/camera/image_raw"/>
+</launch>
